@@ -47,9 +47,9 @@ export default function App() {
       <h1>test</h1>
       <ul>
         {selectData?.map((el) => (
-          <li key={el.name}>
-            <p>{el.name}</p>
-            <p>{el.password}</p>
+          <li key={el.userData.name}>
+            <p>{el.userData.name}</p>
+            <p>{el.userData.password}</p>
           </li>
         ))}
       </ul>

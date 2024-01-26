@@ -6,8 +6,31 @@ router.post("/users", async (req, res) => {
   const { name, password } = req.body;
   res.send("user sent, thank you");
 
-  const user = { name: name, password: password };
-  const newUser = new Users(user);
+  // const user = { name: name, password: password };
+  const newUser = new Users({
+    userData: {
+      name,
+      password,
+      savingsGoal: "",
+      income: "",
+      currency: "",
+    },
+    expenses: {
+      january: [],
+      february: [],
+      march: [],
+      april: [],
+      may: [],
+      june: [],
+      july: [],
+      august: [],
+      september: [],
+      october: [],
+      november: [],
+      december: [],
+    },
+  });
+
   const saveUsers = await newUser.save();
   if (saveUsers) {
     res.send("User added, thank you");
